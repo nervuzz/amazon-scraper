@@ -19,3 +19,7 @@ class LegoSet(BaseModel):
     priceInfo: PriceInfo
     title: str
     setNumber: str = None
+
+
+class StoreItems(BaseModel):
+    items: list[BaseModel] = []

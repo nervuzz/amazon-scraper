@@ -2,9 +2,9 @@ import re
 
 import orjson
 import requests
-from flask import Flask, jsonify
+from flask import Flask, render_template
 
-from models import LegoSet
+from models import LegoSet, StoreItems
 
 app = Flask(__name__)
 
@@ -39,19 +39,23 @@ def three_for_two():
         cookies=cookies
     )
 
-    asobj = orjson.loads(response.json())
+    asobj = orjson.loads(response.content)
 
     product_list = asobj['viewModels']['PRODUCT_INFO_LIST']
 
-    list_of_sets = []
+    store_items = StoreItems()
 
     for product in product_list:
         LS = LegoSet(**product)
         s = re.search(r"(\d{4,6})", LS.title)
         LS.setNumber = s.group() if s else "unknown"
-        list_of_sets.append(LegoSet(**product))
+        store_items.items.append(LS)
 
-    return jsonify(list_of_sets), 200
+    # return jsonify(store_items.dict()), 200
+    return render_template(
+        "show.jinja2",
+        items=store_items.items
+    )
 
 
 if __name__ == "__main__":
