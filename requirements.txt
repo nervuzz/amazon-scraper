@@ -1,0 +1,5 @@
+Flask
+gunicorn
+orjson
+pydantic
+requests
