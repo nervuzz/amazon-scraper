@@ -17,3 +17,5 @@ The whole idea was to monitor what sets go in and out as the item list was chang
 ## Outcome
 
 Hopefully the offer was not so interesting to me, therefore I haven't bought another new set this year 😅
+
+## Try it on [Render](https://amazon-scraper-3n8t.onrender.com/3for2)
