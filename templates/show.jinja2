@@ -1,10 +1,11 @@
+<h2>Data source: <b>{{ data_source }}</b></h2>
 <table>
 {% for item in items %}
-<TR>
-  <TD class="c1"><IMG src="{{ item.imgURL }}"></TD>
-  <TD class="c5"><SPAN>LEGO {{ item.setNumber }}</SPAN></TD>
-  <TD class="c3">http://amazon.pl{{ item.detailPageLink }}</TD>
-  <TD class="c4"><SPAN>{{ item.priceInfo.priceToPay.displayString }}</SPAN></TD>
-</TR>
+<tr>
+  <td><img src="{{ item.imgURL }}"></td>
+  <td><span>LEGO {{ item.setNumber }}</span></td>
+  <td>http://amazon.pl{{ item.detailPageLink }}</td>
+  <td><span>{{ item.priceInfo.priceToPay.displayString }}</span></td>
+</tr>
 {% endfor %}
 </table>
