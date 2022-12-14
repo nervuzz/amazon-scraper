@@ -16,22 +16,11 @@ def hello_world():
 
 @app.route("/3for2")
 def three_for_two():
+    """Landing page."""
 
-    url = "https://www.amazon.fr/promotion/psp/productInfoList"
+    from config import url, payload, headers, cookies
 
-    payload = "promotionId=A2KA67KJQ3R6VT&anti-csrftoken-a2z=hAMgDSD9FYYkbhw8hXtRSjxJGnRAlUmbeOptdWdAFBC%2FAAAAAGN400gAAAAB"
-
-    headers = {
-        'Content-Type': 'application/x-www-form-urlencoded',
-        'Host': 'www.amazon.fr',
-        'User-Agent': 'HTTPie'
-    }
-
-    cookies = {
-        'session-id': '258-8434095-1415205',
-        'ubid-acbfr': '260-4128488-8114845',
-    }
-
+    data_source = "ONLINE"
     response = requests.post(
         url,
         data=payload,
